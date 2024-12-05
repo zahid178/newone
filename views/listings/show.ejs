@@ -33,13 +33,14 @@
             <button class="btn btn-dark">Delete</button>
         </form>
     </div>
-    <hr>
+    
 
     <% } %>
 
     <!-- Review Section -->
     <div class="col-8 offset-3 mb-3">
         <% if (currUser) { %>
+            <hr>
         <h4>Leave a Review</h4>
         <form action="/listings/<%= listing._id %>/reviews" method="POST" novalidate class="needs-validation">
             <div class="mb-3">
@@ -70,8 +71,9 @@
         <hr>
         <% } %>
 
-        <p><b>All Reviews</b></p>
+       <% if(listing.reviews.length > 0 ) {%>
         <div class="row">
+            <p><b>All Reviews</b></p>
             <% for (let review of listing.reviews) { %>
             <div class="card col-5 ms-3 mb-3">
                 <h5 class="card-title">@<%= review.author.username %></h5>
@@ -83,5 +85,27 @@
             </div>
             <% } %>
         </div>
+        <% } %>
     </div>
+        <div class="col-8 offset-3 mb-3"> 
+          <h3>Where you'll be</h3>
+          <div id="map"></div>
+        </div>
 </div>
+<script>
+
+    let mapToken = "<%= process.env.MAP_TOKEN %>"
+    console.log(mapToken);
+    mapboxgl.accessToken = mapToken;
+
+    // mapboxgl.accessToken = "pk.eyJ1IjoiaWJyYWhpbWFsaTA3ODYiLCJhIjoiY20yYWRiZWw0MGQxZDJvczd6bzc4aDUzMiJ9.FUTLwMNaICKfoct8yJqVQQ"
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [-74.5, 40],
+        zoom: 9
+    })
+</script>
+
+
+
