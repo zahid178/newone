@@ -31,16 +31,15 @@ const listingSchema = new Schema({
     },
     geometry: {
         type: {
-            type: String,
-            enum: ['Point'],
-            required: true
+          type: String, // Don't do `{ location: { type: String } }`
+          enum: ['Point'], // 'location.type' must be 'Point'
+          required: true
         },
-   
         coordinates: {
-            type: [Number],
-            required: true
-       }
-    }
+          type: [Number],
+          required: true
+        }
+      },
 });
 
 listingSchema.post("findOneAndDelete", async (listing) => {
@@ -48,4 +47,7 @@ listingSchema.post("findOneAndDelete", async (listing) => {
         await Review.deleteMany({ _id: { $in: listing.reviews } });
     }
 });
+
+const Listing = mongoose.model("Listing", listingSchema);
+module.exports = Listing;
 
