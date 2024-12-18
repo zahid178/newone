@@ -1,4 +1,4 @@
-<style>
+ <!-- <style>
   .search-btn {
     background-color: #fe424d;
     color: #fff;
@@ -30,7 +30,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <!-- <a class="nav-link active"  href="/">Home</a> -->
           <a class="nav-link" href="/listings">Explore</a>
         </div>
         <div class="navbar-nav ms-auto">
@@ -51,6 +50,102 @@
         </div>
       </div>
     </div>
-  </nav>
+  </nav> -->
 
- 
+<style>
+  .search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem;
+  }
+
+  .search-btn:hover {
+    background-color: #d83b42;
+    color: #fff;
+  }
+
+  .search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 3rem;
+    font-size: 1rem;
+  }
+
+  .dropdown-menu {
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .dropdown-item:hover {
+    background-color: #fe424d;
+    color: #fff;
+  }
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <!-- Search with Dropdown -->
+        <div class="input-group">
+          <input class="form-control search-inp" type="search" placeholder="Search destination" id="searchDropdown" data-bs-toggle="dropdown">
+        
+          <ul class="dropdown-menu"aria-labelledby="searchDropdown" >
+            <li><a class="dropdown-item" href="/search?category=trending">Trending</a></li>
+            <li><a class="dropdown-item" href="/search?category=rooms">Rooms</a></li>
+            <li><a class="dropdown-item" href="/search?category=iconic-cities">Iconic Cities</a></li>
+            <li><a class="dropdown-item" href="/search?category=mountains">Mountains</a></li>
+            <li><a class="dropdown-item" href="/search?category=castles">Castles</a></li>
+            <li><a class="dropdown-item" href="/search?category=camping">Camping</a></li>
+            <li><a class="dropdown-item" href="/search?category=farms">Farms</a></li>
+            <li><a class="dropdown-item" href="/search?category=arctic">Arctic</a></li>
+            <li><a class="dropdown-item" href="/search?category=domes">Domes</a></li>
+            <li><a class="dropdown-item" href="/search?category=cruise">Cruise</a></li>
+          </ul>
+          <!-- <button class="btn search-btn dropdown-toggle" type="button" id="searchDropdown" data-bs-toggle="dropdown" aria-expanded="false"> -->
+             <!-- <button class="btn search-btn dropdown-toggle" type="button" aria-expanded="false"> -->
+              <button class="btn search-btn" type="button" aria-expanded="false">
+              <!-- <button class="btn search-btn " type="button" ></button> -->
+              <!-- <button class="btn search-btn " type="button" aria-expanded="false"></button> -->
+            <!-- <i class="fa-solid fa-magnifying-glass"></i>Search -->
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <!-- <ul class="dropdown-menu" aria-labelledby="searchDropdown">
+            <li><a class="dropdown-item" href="/search?category=trending">Trending</a></li>
+            <li><a class="dropdown-item" href="/search?category=rooms">Rooms</a></li>
+            <li><a class="dropdown-item" href="/search?category=iconic-cities">Iconic Cities</a></li>
+            <li><a class="dropdown-item" href="/search?category=mountains">Mountains</a></li>
+            <li><a class="dropdown-item" href="/search?category=castles">Castles</a></li>
+            <li><a class="dropdown-item" href="/search?category=camping">Camping</a></li>
+            <li><a class="dropdown-item" href="/search?category=farms">Farms</a></li>
+            <li><a class="dropdown-item" href="/search?category=arctic">Arctic</a></li>
+            <li><a class="dropdown-item" href="/search?category=domes">Domes</a></li>
+            <li><a class="dropdown-item" href="/search?category=cruise">Cruise</a></li>
+          </ul> -->
+        </div>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">Airbnb your home</a>
+        <% if (!currUser) { %>
+        <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+        <a class="nav-link" href="/login"><b>Log in</b></a>
+        <% } %>
+        <% if (currUser) { %>
+        <a class="nav-link" href="/logout"><b>Log out</b></a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav> 
